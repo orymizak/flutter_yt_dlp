@@ -11,6 +11,7 @@ All notable changes to the `flutter_yt_dlp` plugin will be documented in this fi
 - Updated Android build tooling to Gradle 9.1.0, Android Gradle Plugin 9.0.1, Kotlin 2.3.20, Java 17, and Android SDK 36.
 - Updated Chaquopy to 17.0.0 and `yt-dlp` to 2026.6.9.
 - Replaced the unavailable `com.arthenica:ffmpeg-kit-full:6.0` Maven dependency with the community-maintained `com.antonkarpenko:ffmpeg-kit-full-gpl:2.1.0` fork used by `ffmpeg_kit_flutter_new`.
+- Exposed playable format metadata from `yt-dlp`: `url`, `protocol`, `manifest_url`, and `http_headers`.
 
 ## [0.2.2] - 2025-05-29
 

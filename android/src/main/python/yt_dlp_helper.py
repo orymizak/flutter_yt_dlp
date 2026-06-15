@@ -21,6 +21,10 @@ def extract_format_info(format_data):
     """Extracts format info from yt-dlp data."""
     return {
         "formatId": format_data.get("format_id", "unknown"),
+        "url": _nullable_string(format_data.get("url")),
+        "protocol": _nullable_string(format_data.get("protocol")),
+        "manifest_url": _nullable_string(format_data.get("manifest_url")),
+        "http_headers": _normalize_http_headers(format_data.get("http_headers")),
         "ext": format_data.get("ext", "unknown"),
         "resolution": (
             format_data.get("resolution", "unknown")
@@ -34,6 +38,18 @@ def extract_format_info(format_data):
         "vcodec": format_data.get("vcodec", "none"),
         "acodec": format_data.get("acodec", "none"),
     }
+
+
+def _nullable_string(value):
+    """Converts optional yt-dlp values to JSON-safe strings."""
+    return None if value is None else str(value)
+
+
+def _normalize_http_headers(headers):
+    """Converts yt-dlp HTTP headers into a JSON-safe string map."""
+    if not isinstance(headers, dict):
+        return {}
+    return {str(key): str(value) for key, value in headers.items() if value is not None}
 
 
 def get_video_info(url):
