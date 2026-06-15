@@ -1,7 +1,10 @@
 # Flutter Yt Dlp
 
-**Discontinued Notice (May 29, 2025)**  
-This plugin is no longer maintained and has been discontinued. The package will be unpublished from pub.dev after the mandatory waiting period. We recommend exploring alternative solutions for media downloading, such as direct integration with `yt-dlp` via platform channels or other Flutter plugins for video processing. For questions, refer to the archived GitHub repository at [https://github.com/utoxas/flutter_yt_dlp](https://github.com/utoxas/flutter_yt_dlp).
+**Private maintenance notice**
+This fork is maintained for private app usage and is not published to pub.dev.
+The Android build uses Chaquopy for `yt-dlp` and the community-maintained
+`com.antonkarpenko:ffmpeg-kit-full-gpl` Android FFmpegKit fork for conversion
+and video/audio merging.
 
 ---
 
@@ -27,7 +30,8 @@ Add the plugin to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_yt_dlp: ^0.2.1
+  flutter_yt_dlp:
+    path: ../flutter_yt_dlp
 ```
 
 Run the following command to fetch the package:
